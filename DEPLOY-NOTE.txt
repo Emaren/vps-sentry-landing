@@ -1,0 +1,2 @@
+DEPLOY COPY (VPS)
+Source of truth: https://github.com/Emaren/vps-sentry-landing
