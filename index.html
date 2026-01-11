@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VPS Sentry — Lightweight VPS integrity + exposure monitoring</title>
+  <meta name="description" content="VPS Sentry — lightweight integrity snapshots, exposure checks, and alerting hooks for your VPS." />
+  <style>
+    :root { --bg:#0b0f17; --fg:#e7ecf5; --mut:#9aa7bd; --card:#121a2a; --acc:#7dd3fc; --acc2:#a78bfa; }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(125,211,252,.22), transparent),
+        radial-gradient(1200px 600px at 80% 0%, rgba(167,139,250,.18), transparent),
+        var(--bg);
+      color:var(--fg);
+    }
+    a{color:inherit}
+    .wrap{max-width:1050px;margin:0 auto;padding:56px 20px}
+    .badge{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:6px 10px;border:1px solid rgba(231,236,245,.12);
+      border-radius:999px;background:rgba(18,26,42,.65);
+      color:var(--mut);font-size:13px
+    }
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start;margin-top:18px}
+    h1{font-size:46px;line-height:1.05;margin:14px 0 12px}
+    .sub{color:var(--mut);font-size:17px;line-height:1.5;margin:0 0 18px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:14px;
+      border:1px solid rgba(231,236,245,.14);
+      background:rgba(18,26,42,.75);
+      text-decoration:none
+    }
+    .btn.primary{
+      background:linear-gradient(90deg, rgba(125,211,252,.25), rgba(167,139,250,.22));
+      border-color:rgba(125,211,252,.35)
+    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+    .card{
+      background:rgba(18,26,42,.72);
+      border:1px solid rgba(231,236,245,.12);
+      border-radius:18px;padding:16px
+    }
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--mut);font-size:14px;line-height:1.45}
+    .panel{
+      background:rgba(18,26,42,.55);
+      border:1px solid rgba(231,236,245,.10);
+      border-radius:18px;padding:16px
+    }
+    code{background:rgba(231,236,245,.06);border:1px solid rgba(231,236,245,.08);padding:2px 6px;border-radius:8px}
+    .foot{margin-top:14px;color:var(--mut);font-size:13px}
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="badge">🔐 VPS Sentry <span style="opacity:.55">•</span> Lightweight integrity + exposure monitoring</div>
+
+    <div class="hero">
+      <div>
+        <h1>Know when your VPS changes — fast.</h1>
+        <p class="sub">
+          VPS Sentry snapshots the stuff you actually care about: open ports, SSH posture, key system files,
+          service state, and other “tell me if this changed” signals — with alert hooks you control.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/Emaren/vps-sentry" rel="noreferrer">📦 GitHub / Repo</a>
+          <a class="btn" href="https://github.com/Emaren/vps-sentry#readme" rel="noreferrer">📘 Readme</a>
+          <a class="btn" href="mailto:hello@tokentap.ca">✉️ Contact</a>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Baseline → diff</h3>
+            <p>Accept a clean baseline. Then diff on a timer to detect drift, tampering, or surprise changes.</p>
+          </div>
+          <div class="card">
+            <h3>Practical signals</h3>
+            <p>Focuses on the things attackers and accidents change: exposure, auth, services, configs.</p>
+          </div>
+          <div class="card">
+            <h3>Alert hooks</h3>
+            <p>Pipe alerts to email/SMS/Slack/webhooks — your choice, your infra, no vendor lock-in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 style="margin:0 0 10px">Quick idea of the flow</h3>
+        <p style="margin:0;color:var(--mut);font-size:14px;line-height:1.55">
+          <b>1)</b> Install → <b>2)</b> accept baseline → <b>3)</b> run on a timer → <b>4)</b> alert on diff.
+          <br><br>
+          Typical: <code>systemd timer</code> + <code>nginx hard-drops</code> + <code>fail2ban</code>.
+        </p>
+        <div class="foot">
+          This landing page is intentionally static (served by nginx) for reliability.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
